@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lopmotahinhchunhat</title>
+</head>
+<body>
+<canvas id="myCanvas" width="480" height="320"></canvas>
+
+<script>
+  let rect = function (width, height) {
+    this.width =  width;
+    this.height = height;
+    this.Area = function () {
+      area = this.width*this.height;
+      alert(area);
+    }
+    this.Perimeter = function () {
+      p = (this.width + this.height) / 2;
+      alert(p);
+    }
+    this.setWidth = function (width) {
+      return this.width = width
+    }
+    this.setHeight = function (height) {
+      return this.height = height
+    }
+    this.setRect = function (width, height) {
+      this.setWidth(width)
+      this.setHeight(height)
+    }
+    this.drawRect = function (width, height) {
+      let c = document.getElementById("myCanvas");
+      let ctx = c.getContext("2d");
+
+      ctx.beginPath();
+      ctx.rect(20, 40, width, height);
+      ctx.fillStyle = "#FF0000";
+      ctx.fill();
+      ctx.closePath();
+    }
+  }
+
+  let Rectangle = new rect (100, 15);
+  Rectangle.drawRect(Rectangle.width, Rectangle.height);
+  Rectangle.setRect(150, 100);
+  Rectangle.Area ();
+  Rectangle.Perimeter ();
+
+</script>
+</body>
+</html>
